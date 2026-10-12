@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Sprint</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">S</div>
+          <div>
+            <p class="eyebrow">Study Sprint</p>
+            <h1>FocusFlow</h1>
+          </div>
+        </div>
+
+        <nav class="side-nav" aria-label="Main navigation">
+          <button class="nav-item active" type="button" data-target="dashboard">Dashboard</button>
+          <button class="nav-item" type="button" data-target="assignments-panel">Assignments</button>
+          <button class="nav-item" type="button" data-target="goals-panel">Goals</button>
+          <button class="nav-item" type="button" data-target="exam-panel">Exam Prep</button>
+        </nav>
+
+        <div class="mini-card">
+          <p class="eyebrow">This week</p>
+          <h3>6 study sessions</h3>
+          <span>Goal: 12 hours</span>
+        </div>
+      </aside>
+
+      <main class="main-panel" id="dashboard">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Welcome back</p>
+            <h2>Study dashboard</h2>
+          </div>
+        </header>
+
+        <section class="stats-grid" aria-label="Quick stats">
+          <article class="stat-card accent-blue">
+            <div>
+              <span class="label">Assignments</span>
+              <h3 id="assignmentsCount">0</h3>
+            </div>
+            <span class="trend positive">+2 this week</span>
+          </article>
+
+          <article class="stat-card accent-purple">
+            <div>
+              <span class="label">Goals hit</span>
+              <h3 id="goalsCount">0</h3>
+            </div>
+            <span class="trend positive">+3 streak</span>
+          </article>
+
+          <article class="stat-card accent-teal">
+            <div>
+              <span class="label">Study hours</span>
+              <h3 id="studyHours">0h</h3>
+            </div>
+            <span class="trend positive">+1.5h today</span>
+          </article>
+
+          <article class="stat-card accent-orange">
+            <div>
+              <span class="label">Exam prep</span>
+              <h3 id="examPrep">0%</h3>
+            </div>
+            <span class="trend neutral">On track</span>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <div class="panel task-panel" id="assignments-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Planner</p>
+                <h3>Task manager</h3>
+              </div>
+              <div class="segmented-control" aria-label="Task filters">
+                <button class="filter-btn active" type="button" data-filter="all">All</button>
+                <button class="filter-btn" type="button" data-filter="pending">Pending</button>
+                <button class="filter-btn" type="button" data-filter="done">Done</button>
+              </div>
+            </div>
+
+            <form id="taskForm" class="task-form">
+              <input id="taskInput" type="text" placeholder="Add assignment or study task" required />
+              <select id="subjectSelect" aria-label="Subject">
+                <option value="Math">Math</option>
+                <option value="Biology">Biology</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="History">History</option>
+                <option value="Literature">Literature</option>
+              </select>
+              <button type="submit">Add task</button>
+            </form>
+
+            <ul id="taskList" class="task-list" aria-live="polite"></ul>
+          </div>
+
+          <div class="panel goal-panel" id="goals-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Targets</p>
+                <h3>Study goals</h3>
+              </div>
+            </div>
+
+            <form id="goalForm" class="goal-form">
+              <input id="goalInput" type="text" placeholder="Set a study goal" required />
+              <button type="submit">Save</button>
+            </form>
+
+            <ul id="goalList" class="goal-list"></ul>
+          </div>
+        </section>
+
+        <section class="bottom-grid">
+          <div class="panel subject-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Coverage</p>
+                <h3>Subject-wise planning</h3>
+              </div>
+            </div>
+            <div id="subjectGrid" class="subject-grid"></div>
+          </div>
+
+          <div class="panel timeline-panel" id="exam-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Schedule</p>
+                <h3>Exam prep timeline</h3>
+              </div>
+            </div>
+            <div id="timelineList" class="timeline-list"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
